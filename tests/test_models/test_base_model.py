@@ -32,5 +32,6 @@ class TestBaseModel(unittest.TestCase):
         if os.path.isfile(FileStorage._FileStorage__file_path):
             os.remove(FileStorage._FileStorage__file_path)
 
-  if __name__ == '__main__':
+
+if __name__ == '__main__':
     unittest.main()
