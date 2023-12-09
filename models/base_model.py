@@ -11,7 +11,7 @@ from models import storage
 
 class BaseModel:
     """Class for the base model for all objects"""
-  
+
     def __init__(self, *args, **kwargs):
         """
         Initialization of a Base instance.
@@ -24,9 +24,11 @@ class BaseModel:
         if kwargs is not None and kwargs != {}:
             for key in kwargs:
                 if key == "updated_at":
-                    self.__dict__["updated_at"] = datetime.strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                    self.__dict__["updated_at"] = datetime.strptime(
+                            kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
                 elif key == "created_at":
-                    self.__dict__["created_at"] = datetime.strptime(kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                    self.__dict__["created_at"] = datetime.strptime(
+                            kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
                 else:
                     self.__dict__[key] = kwargs[key]
         else:
@@ -39,7 +41,8 @@ class BaseModel:
         """
         Return a human-readable string representation of the instance
         """
-        return "[{}] ({}) {}".format(type(self).__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}"./
+        format(type(self).__name__, self.id, self.__dict__)
 
     def save(self):
         """
