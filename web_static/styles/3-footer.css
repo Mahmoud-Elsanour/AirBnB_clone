@@ -1,0 +1,11 @@
+footer
+{
+    width:100%;
+    text-align:center;
+    background-color:#FFFFFF;
+    height:60px;
+    line-height:60px;
+    border-top: solid 1px #CCCCCC;
+    display: table-row;
+    vertical-align: bottom;
+}
