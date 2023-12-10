@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Serializes instances to a JSON file and deserializes JSON file to instances
+Serialize instances to a JSON file
+and deserialize JSON file to an instance
 """
 import json
 from datetime import datetime
@@ -14,9 +15,10 @@ from models.review import Review
 
 class FileStorage:
     """
-    Serializes instances to a JSON file and deserializes JSON file to instances
+    Serialize instances to a JSON file
+    and deserialize JSON file to an instance
     """
-    __file_path = 'file.json'
+    __path_to_file = 'file.json'
     __objects = {}
 
     def all(self):
@@ -30,7 +32,7 @@ class FileStorage:
         """
         serializes FileStroage.__objects
         """
-        with open(FileStorage.__file_path, 'w+') as f:
+        with open(FileStorage.__path_to_file, 'w+') as f:
             dictofobjs = {}
             for key, value in FileStorage.__objects.items():
                 dictofobjs[key] = value.to_dict()
@@ -41,7 +43,7 @@ class FileStorage:
         deserializes instances got from json file
         """
         try:
-            with open(FileStorage.__file_path, 'r') as f:
+            with open(FileStorage.__path_to_file, 'r') as f:
                 dictofobjs = json.loads(f.read())
                 from models.base_model import BaseModel
                 from models.user import User
